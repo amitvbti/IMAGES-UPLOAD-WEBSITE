@@ -104,7 +104,6 @@ body {
 }
 
 
-
 /* =========================
    THUMBNAILS
    ========================= */
@@ -132,7 +131,6 @@ body {
 
     border: 1px solid #dddddd;
 }
-
 
 
 /* =========================
@@ -195,18 +193,9 @@ body {
     width: 0%;
     height: 100%;
 
-    background: #555555;
+    background: #777777;
 
     border-radius: 4px;
-
-    transition: width 0.2s ease;
-}
-
-.progress-bar {
-    width: 0%;
-    height: 100%;
-
-    background: #777777;
 
     transition: width 0.2s ease;
 }
@@ -273,13 +262,12 @@ body {
 }
 
 
-/* Temporary Logo */
+/* Logo */
 
 .logo-container {
     margin-bottom: 0;
-    padding-bottom: 0px;
+    padding-bottom: 0;
 }
-
 
 .company-logo {
     width: 100px;
@@ -291,12 +279,13 @@ body {
 /* Contact Details */
 
 .contact-details {
+    margin-top: 25px;
+
     font-family: Arial, sans-serif;
     font-size: 14px;
     font-weight: 700;
 
     color: #777777;
-	margin-top: 25px;
 }
 
 .contact-person + .contact-person {
@@ -328,9 +317,7 @@ body {
     }
 
 
-    /* =========================
-       UPLOAD AREA
-       ========================= */
+    /* Upload area */
 
     .upload-section {
         margin-top: 55px;
@@ -338,9 +325,7 @@ body {
     }
 
 
-    /* =========================
-       THUMBNAILS
-       ========================= */
+    /* Thumbnails */
 
     .thumbnail-grid {
         width: 90%;
@@ -352,9 +337,7 @@ body {
     }
 
 
-    /* =========================
-       SELECT IMAGES BUTTON
-       ========================= */
+    /* Select images */
 
     .upload-button {
         padding: 8px 18px;
@@ -362,22 +345,19 @@ body {
     }
 
 
-    /* =========================
-       FOOTER
-       ========================= */
+    /* Footer */
 
     .footer {
-    margin-top: auto;
-    padding-top: 20px;
-    padding-bottom: 30px;
+        margin-top: auto;
 
-    transform: translateY(-55px);
-}
+        padding-top: 20px;
+        padding-bottom: 30px;
+
+        transform: translateY(-55px);
+    }
 
 
-    /* =========================
-       LOGO
-       ========================= */
+    /* Logo */
 
     .company-logo {
         width: 90px;
@@ -385,9 +365,7 @@ body {
     }
 
 
-    /* =========================
-       CONTACT DETAILS
-       ========================= */
+    /* Contact */
 
     .contact-details {
         margin-top: 18px;
@@ -397,5 +375,4 @@ body {
     .contact-person + .contact-person {
         margin-top: 15px;
     }
-
 }
