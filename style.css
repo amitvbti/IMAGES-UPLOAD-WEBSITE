@@ -103,10 +103,6 @@ body {
     transform: translateY(1px);
 }
 
-.upload-button:hover {
-    background: #555555;
-    color: #ffffff;
-}
 
 
 /* =========================
@@ -316,10 +312,14 @@ body {
    MOBILE
    ========================= */
 
+/* =========================
+   MOBILE
+   ========================= */
+
 @media (max-width: 700px) {
 
     .header {
-        padding-top: 30px;
+        padding-top: 20px;
     }
 
     .header h1 {
@@ -328,28 +328,75 @@ body {
 
     .subtitle {
         font-size: 11px;
-        line-height: 1.8;
+        line-height: 1.6;
     }
+
+
+    /* =========================
+       UPLOAD AREA
+       ========================= */
 
     .upload-section {
-        margin-top: 55px;
+        margin-top: 35px;
+        margin-bottom: 45px;
     }
 
+
+    /* =========================
+       THUMBNAILS
+       ========================= */
+
     .thumbnail-grid {
+        width: 90%;
+
+        margin-top: 25px;
+
         grid-template-columns: repeat(3, 1fr);
-        gap: 10px;
+        gap: 8px;
     }
-	
-	.thumbnail-grid {
-    width: 90%;
-}
+
+
+    /* =========================
+       SELECT IMAGES BUTTON
+       ========================= */
 
     .upload-button {
         padding: 8px 18px;
         font-size: 12px;
     }
 
+
+    /* =========================
+       FOOTER
+       ========================= */
+
     .footer {
-        padding-bottom: 30px;
+        padding-top: 10px;
+        padding-bottom: 15px;
     }
+
+
+    /* =========================
+       LOGO
+       ========================= */
+
+    .company-logo {
+        width: 90px;
+        height: auto;
+    }
+
+
+    /* =========================
+       CONTACT DETAILS
+       ========================= */
+
+    .contact-details {
+        margin-top: 18px;
+        font-size: 13px;
+    }
+
+    .contact-person + .contact-person {
+        margin-top: 15px;
+    }
+
 }
