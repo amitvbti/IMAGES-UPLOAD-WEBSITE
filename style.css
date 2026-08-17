@@ -143,8 +143,8 @@ body {
 }
 
 .company-logo {
-    width: 20px;
-    height: 20px;
+    width: 90px;
+    height: auto;
     display: block;
 }
 
