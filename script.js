@@ -211,16 +211,13 @@ finalUploadButton.addEventListener(
             return;
         }
 
-
         finalUploadButton.disabled = true;
 
         finalUploadButton.textContent =
             "UPLOADING...";
 
-
         const filesToUpload =
             [...selectedFiles];
-
 
         for (const file of filesToUpload) {
 
@@ -228,11 +225,23 @@ finalUploadButton.addEventListener(
 
         }
 
+        /*
+         * Current batch upload complete.
+         * Clear only the internal list so that
+         * new photos can be selected and uploaded.
+         */
+
+        selectedFiles = [];
+
+        finalUploadButton.disabled = false;
 
         finalUploadButton.textContent =
             "UPLOAD COMPLETE";
 
+        updateFinalUploadButton();
+
     }
+);
 );
 
 
