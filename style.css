@@ -145,8 +145,8 @@ body {
 
 
 .company-logo {
-    width: 180px;
-    height: 123px;
+    width: 100px;
+    height: 66px;
     display: block;
 }
 
@@ -159,7 +159,7 @@ body {
     font-weight: 700;
 
     color: #777777;
-	margin-top: 35px;
+	margin-top: 25px;
 }
 
 .contact-person + .contact-person {
