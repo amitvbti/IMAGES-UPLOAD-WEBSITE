@@ -369,7 +369,9 @@ body {
     .footer {
     margin-top: auto;
     padding-top: 20px;
-    padding-bottom: 45px;
+    padding-bottom: 30px;
+
+    transform: translateY(-35px);
 }
 
 
