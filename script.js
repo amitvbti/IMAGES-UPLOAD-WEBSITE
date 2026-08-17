@@ -1,4 +1,5 @@
-const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyBU8w4FGaq6G2G55hcZb-LOv2_MwdpdnV4KwaV41ki-i8fJ_vGmOkgUZDMJ4r5q22J5Q/exec";
+const GOOGLE_SCRIPT_URL = "YAHAN_APNA_EXISTING_WEB_APP_URL_RAKHO";
+
 
 const selectImagesButton =
     document.getElementById("selectImagesButton");
@@ -17,14 +18,14 @@ const finalUploadButton =
 
 
 /* =========================
-   SELECTED FILES
+   CURRENT BATCH OF FILES
    ========================= */
 
 let selectedFiles = [];
 
 
 /* =========================
-   SELECT IMAGES BUTTON
+   SELECT IMAGES
    ========================= */
 
 selectImagesButton.addEventListener("click", function () {
@@ -35,16 +36,16 @@ selectImagesButton.addEventListener("click", function () {
 
 
 /* =========================
-   FILE SELECTION
+   WHEN IMAGES ARE SELECTED
    ========================= */
 
 imageInput.addEventListener("change", function () {
 
-    const newFiles =
+    const files =
         Array.from(imageInput.files);
 
 
-    newFiles.forEach(function (file) {
+    files.forEach(function (file) {
 
         if (!file.type.startsWith("image/")) {
             return;
@@ -59,6 +60,12 @@ imageInput.addEventListener("change", function () {
 
 
     updateFinalUploadButton();
+
+
+    /*
+     * Clear the input so the same file
+     * can be selected again later.
+     */
 
     imageInput.value = "";
 
@@ -81,7 +88,7 @@ function createThumbnail(file) {
     card.classList.add("thumbnail-card");
 
 
-    /* Image */
+    /* IMAGE */
 
     const thumbnail =
         document.createElement("img");
@@ -93,7 +100,7 @@ function createThumbnail(file) {
     thumbnail.alt = file.name;
 
 
-    /* Remove button */
+    /* REMOVE BUTTON */
 
     const removeButton =
         document.createElement("button");
@@ -132,7 +139,7 @@ function createThumbnail(file) {
     );
 
 
-    /* Progress */
+    /* PROGRESS */
 
     const progressContainer =
         document.createElement("div");
@@ -155,7 +162,7 @@ function createThumbnail(file) {
     );
 
 
-    /* Store references */
+    /* STORE REFERENCES */
 
     card.file = file;
 
@@ -164,7 +171,7 @@ function createThumbnail(file) {
     card.thumbnail = thumbnail;
 
 
-    /* Build card */
+    /* BUILD CARD */
 
     card.appendChild(thumbnail);
 
@@ -211,13 +218,22 @@ finalUploadButton.addEventListener(
             return;
         }
 
+
+        /*
+         * Take a copy of the current batch.
+         * This allows us to clear the batch
+         * after uploading.
+         */
+
+        const filesToUpload =
+            [...selectedFiles];
+
+
         finalUploadButton.disabled = true;
 
         finalUploadButton.textContent =
             "UPLOADING...";
 
-        const filesToUpload =
-            [...selectedFiles];
 
         for (const file of filesToUpload) {
 
@@ -225,23 +241,31 @@ finalUploadButton.addEventListener(
 
         }
 
+
         /*
-         * Current batch upload complete.
-         * Clear only the internal list so that
-         * new photos can be selected and uploaded.
+         * Current batch is finished.
          */
 
         selectedFiles = [];
+
 
         finalUploadButton.disabled = false;
 
         finalUploadButton.textContent =
             "UPLOAD COMPLETE";
 
-        updateFinalUploadButton();
+
+        /*
+         * Hide the upload button because
+         * there are no pending files.
+         *
+         * SELECT IMAGES remains active.
+         */
+
+        finalUploadContainer.style.display =
+            "none";
 
     }
-);
 );
 
 
@@ -259,26 +283,32 @@ function uploadFile(file) {
 
         reader.onload = async function () {
 
+            const card =
+                findCardForFile(file);
+
+
+            if (!card) {
+
+                resolve();
+
+                return;
+
+            }
+
+
             try {
+
+                /*
+                 * Convert image to Base64
+                 */
 
                 const base64Data =
                     reader.result.split(",")[1];
 
 
-                const card =
-                    findCardForFile(file);
-
-
-                if (!card) {
-
-                    resolve();
-
-                    return;
-
-                }
-
-
-                /* Start progress */
+                /*
+                 * Initial progress
+                 */
 
                 card.progressBar.style.width =
                     "10%";
@@ -296,7 +326,7 @@ function uploadFile(file) {
 
 
                 /*
-                 * Send file to Google Apps Script
+                 * Send to Google Apps Script
                  */
 
                 const response =
@@ -318,6 +348,10 @@ function uploadFile(file) {
                     );
 
 
+                /*
+                 * Almost complete
+                 */
+
                 card.progressBar.style.width =
                     "90%";
 
@@ -325,6 +359,10 @@ function uploadFile(file) {
                 const result =
                     await response.json();
 
+
+                /*
+                 * SUCCESS
+                 */
 
                 if (result.success) {
 
@@ -334,16 +372,23 @@ function uploadFile(file) {
                     card.progressBar.style.background =
                         "#555555";
 
-
                     card.thumbnail.style.opacity =
                         "0.65";
 
-                } else {
+                }
+
+
+                /*
+                 * FAILED
+                 */
+
+                else {
 
                     card.progressBar.style.background =
                         "#999999";
 
                     console.error(
+                        "Upload failed:",
                         result.error
                     );
 
@@ -357,16 +402,9 @@ function uploadFile(file) {
                     error
                 );
 
-                const card =
-                    findCardForFile(file);
 
-
-                if (card) {
-
-                    card.progressBar.style.background =
-                        "#999999";
-
-                }
+                card.progressBar.style.background =
+                    "#999999";
 
             }
 
@@ -377,6 +415,11 @@ function uploadFile(file) {
 
 
         reader.onerror = function () {
+
+            console.error(
+                "Could not read file:",
+                file.name
+            );
 
             resolve();
 
@@ -391,7 +434,7 @@ function uploadFile(file) {
 
 
 /* =========================
-   FIND IMAGE CARD
+   FIND CARD FOR FILE
    ========================= */
 
 function findCardForFile(file) {
