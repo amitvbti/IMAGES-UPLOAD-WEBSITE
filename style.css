@@ -99,11 +99,17 @@ body {
    ========================= */
 
 .thumbnail-grid {
-    margin-top: 45px;
+    width: 50%;
+    margin: 45px auto 0;
 
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 14px;
+    gap: 10px;
+}
+
+.thumbnail-card {
+    position: relative;
+    width: 100%;
 }
 
 .thumbnail {
@@ -111,14 +117,115 @@ body {
     aspect-ratio: 1 / 1;
 
     object-fit: cover;
-
     display: block;
 
     border: 1px solid #dddddd;
-
-    cursor: pointer;
 }
 
+
+
+/* =========================
+   REMOVE IMAGE BUTTON
+   ========================= */
+
+.remove-image-button {
+    position: absolute;
+
+    top: 6px;
+    right: 6px;
+
+    width: 28px;
+    height: 28px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: rgba(0, 0, 0, 0.75);
+
+    color: #ffffff;
+
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+
+    line-height: 28px;
+    text-align: center;
+
+    cursor: pointer;
+
+    padding: 0;
+
+    z-index: 10;
+}
+
+.remove-image-button:hover {
+    background: rgba(0, 0, 0, 0.95);
+}
+
+
+/* =========================
+   UPLOAD PROGRESS
+   ========================= */
+
+.progress-container {
+    width: 100%;
+    height: 5px;
+
+    margin-top: 6px;
+
+    background: #e5e5e5;
+
+    overflow: hidden;
+}
+
+.progress-bar {
+    width: 0%;
+    height: 100%;
+
+    background: #777777;
+
+    transition: width 0.2s ease;
+}
+
+
+/* =========================
+   FINAL UPLOAD BUTTON
+   ========================= */
+
+.final-upload-container {
+    display: none;
+
+    margin-top: 35px;
+
+    text-align: center;
+}
+
+.final-upload-button {
+    padding: 13px 32px;
+
+    border: none;
+    border-radius: 3px;
+
+    background: #444444;
+
+    color: #ffffff;
+
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+
+    letter-spacing: 0.3px;
+
+    cursor: pointer;
+
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+
+    transition: background-color 0.2s ease;
+}
+
+.final-upload-button:hover {
+    background: #222222;
+}
 
 /* =========================
    FOOTER / LOGO / CONTACT
