@@ -140,7 +140,7 @@ body {
 
 .logo-container {
     margin-bottom: 0;
-    padding-bottom: 45px;
+    padding-bottom: 0px;
 }
 
 
@@ -159,6 +159,7 @@ body {
     font-weight: 700;
 
     color: #777777;
+	margin-top: 35px;
 }
 
 .contact-person + .contact-person {
