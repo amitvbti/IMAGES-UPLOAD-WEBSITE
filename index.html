@@ -45,42 +45,60 @@
 
         <section class="upload-section">
 
-            <div class="upload-line">
+    <!-- Select images -->
 
-                <div class="line"></div>
+    <div class="upload-line">
 
-                <button
-                    type="button"
-                    class="upload-button"
-                    id="uploadButton"
-                >
-                    UPLOAD
-                </button>
+        <div class="line"></div>
 
-                <div class="line"></div>
+        <button
+            type="button"
+            class="upload-button"
+            id="selectImagesButton"
+        >
+            SELECT IMAGES
+        </button>
 
-            </div>
+        <div class="line"></div>
 
-
-            <!-- File selection -->
-
-            <input
-                type="file"
-                id="imageInput"
-                accept="image/*"
-                multiple
-                hidden
-            >
+    </div>
 
 
-            <!-- Thumbnails -->
+    <input
+        type="file"
+        id="imageInput"
+        accept="image/*"
+        multiple
+        hidden
+    >
 
-            <div
-                class="thumbnail-grid"
-                id="thumbnailGrid"
-            ></div>
 
-        </section>
+    <!-- Selected image thumbnails -->
+
+    <div
+        class="thumbnail-grid"
+        id="thumbnailGrid"
+    ></div>
+
+
+    <!-- Final upload confirmation -->
+
+    <div
+        class="final-upload-container"
+        id="finalUploadContainer"
+    >
+
+        <button
+            type="button"
+            class="final-upload-button"
+            id="finalUploadButton"
+        >
+            UPLOAD SELECTED PHOTOS
+        </button>
+
+    </div>
+
+</section>
 
 
 

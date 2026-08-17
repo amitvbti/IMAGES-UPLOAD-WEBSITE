@@ -198,6 +198,10 @@ body {
         grid-template-columns: repeat(3, 1fr);
         gap: 10px;
     }
+	
+	.thumbnail-grid {
+    width: 90%;
+}
 
     .upload-button {
         padding: 8px 18px;
