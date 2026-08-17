@@ -196,6 +196,12 @@ function updateFinalUploadButton() {
         finalUploadContainer.style.display =
             "block";
 
+        finalUploadButton.disabled =
+            false;
+
+        finalUploadButton.textContent =
+            "UPLOAD SELECTED PHOTOS";
+
     } else {
 
         finalUploadContainer.style.display =
