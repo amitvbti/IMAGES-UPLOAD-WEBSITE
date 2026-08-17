@@ -1,0 +1,218 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #ffffff;
+    color: #222222;
+    font-family: Arial, sans-serif;
+}
+
+.page {
+    width: min(1100px, 92%);
+    min-height: 100vh;
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* =========================
+   HEADER
+   ========================= */
+
+.header {
+    text-align: center;
+    padding-top: 45px;
+}
+
+.header h1 {
+    font-family: "Montserrat", Arial, sans-serif;
+    font-size: 32px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
+
+.subtitle {
+    margin-top: 8px;
+
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+
+    color: #888888;
+    letter-spacing: 0.3px;
+}
+
+
+/* =========================
+   UPLOAD AREA
+   ========================= */
+
+.upload-section {
+    margin-top: 85px;
+    margin-bottom: 80px;
+}
+
+.upload-line {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.line {
+    flex: 1;
+    height: 1px;
+    background: #cfcfcf;
+}
+
+.upload-button {
+    padding: 9px 24px;
+
+    background: #ffffff;
+    border: 1px solid #777777;
+
+    color: #555555;
+
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.upload-button:hover {
+    background: #555555;
+    color: #ffffff;
+}
+
+
+/* =========================
+   THUMBNAILS
+   ========================= */
+
+.thumbnail-grid {
+    margin-top: 45px;
+
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 14px;
+}
+
+.thumbnail {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+
+    object-fit: cover;
+
+    display: block;
+
+    border: 1px solid #dddddd;
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   FOOTER / LOGO / CONTACT
+   ========================= */
+
+.footer {
+    margin-top: auto;
+
+    padding-top: 20px;
+    padding-bottom: 45px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+
+/* Temporary Logo */
+
+.logo-container {
+    margin-bottom: 25px;
+}
+
+.temporary-logo {
+    width: 90px;
+    height: 90px;
+
+    border: 2px solid #777777;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family: "Montserrat", Arial, sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+
+    color: #777777;
+}
+
+
+/* Contact Details */
+
+.contact-details {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+
+    color: #777777;
+}
+
+.contact-person + .contact-person {
+    margin-top: 22px;
+}
+
+.contact-person div + div {
+    margin-top: 3px;
+}
+
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 700px) {
+
+    .header {
+        padding-top: 30px;
+    }
+
+    .header h1 {
+        font-size: 25px;
+    }
+
+    .subtitle {
+        font-size: 11px;
+        line-height: 1.8;
+    }
+
+    .upload-section {
+        margin-top: 55px;
+    }
+
+    .thumbnail-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+    }
+
+    .upload-button {
+        padding: 8px 18px;
+        font-size: 12px;
+    }
+
+    .footer {
+        padding-bottom: 30px;
+    }
+}
