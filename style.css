@@ -338,7 +338,7 @@ body {
 
     .upload-section {
         margin-top: 35px;
-        margin-bottom: 45px;
+        margin-bottom: 10px;
     }
 
 
@@ -371,9 +371,10 @@ body {
        ========================= */
 
     .footer {
-        padding-top: 10px;
-        padding-bottom: 15px;
-    }
+    margin-top: 0;
+    padding-top: 10px;
+    padding-bottom: 15px;
+}
 
 
     /* =========================
