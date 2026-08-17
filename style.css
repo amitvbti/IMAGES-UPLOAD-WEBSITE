@@ -72,20 +72,35 @@ body {
 }
 
 .upload-button {
-    padding: 9px 24px;
+    padding: 11px 28px;
 
-    background: #ffffff;
-    border: 1px solid #777777;
+    border: none;
+    border-radius: 3px;
 
-    color: #555555;
+    background: #4a8f4a;
+    color: #ffffff;
 
     font-family: Arial, sans-serif;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 700;
+
+    letter-spacing: 0.3px;
 
     cursor: pointer;
 
-    transition: 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+
+    transition:
+        background-color 0.2s ease,
+        transform 0.1s ease;
+}
+
+.upload-button:hover {
+    background: #367a36;
+}
+
+.upload-button:active {
+    transform: translateY(1px);
 }
 
 .upload-button:hover {
@@ -219,8 +234,7 @@ body {
     border: none;
     border-radius: 3px;
 
-    background: #444444;
-
+    background: #4a8f4a;
     color: #ffffff;
 
     font-family: Arial, sans-serif;
@@ -233,12 +247,19 @@ body {
 
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
 
-    transition: background-color 0.2s ease;
+    transition:
+        background-color 0.2s ease,
+        transform 0.1s ease;
 }
 
 .final-upload-button:hover {
-    background: #222222;
+    background: #367a36;
 }
+
+.final-upload-button:active {
+    transform: translateY(1px);
+}
+
 
 /* =========================
    FOOTER / LOGO / CONTACT
