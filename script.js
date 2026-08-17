@@ -1,4 +1,4 @@
-const GOOGLE_SCRIPT_URL = "YAHAN_APNA_EXISTING_WEB_APP_URL_RAKHO";
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyBU8w4FGaq6G2G55hcZb-LOv2_MwdpdnV4KwaV41ki-i8fJ_vGmOkgUZDMJ4r5q22J5Q/exec";
 
 
 const selectImagesButton =
